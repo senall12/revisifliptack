@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pertemuan 1 | FLIPTACK</title>
+
+    <style>
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* ==================================================
+           BODY
+        ================================================== */
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    #ffffff 0%,
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    #ffd8e8 0%,
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #f4d2e2,
+                    #fff7fa,
+                    #edc6d8
+                );
+
+            color: #633f4f;
+
+            overflow: hidden;
+        }
+
+
+        /* ==================================================
+           DEKORASI
+        ================================================== */
+
+        .decor {
+            position: fixed;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .decor.one {
+            width: 260px;
+            height: 260px;
+
+            top: -100px;
+            left: -80px;
+
+            background:
+                rgba(255,255,255,0.35);
+        }
+
+        .decor.two {
+            width: 330px;
+            height: 330px;
+
+            right: -130px;
+            bottom: -140px;
+
+            background:
+                rgba(224,157,186,0.18);
+        }
+
+        .decor.three {
+            width: 90px;
+            height: 90px;
+
+            right: 12%;
+            top: 12%;
+
+            background:
+                rgba(255,255,255,0.35);
+        }
+
+
+        /* ==================================================
+           HALAMAN
+        ================================================== */
+
+        .page {
+            position: relative;
+
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            z-index: 1;
+        }
+
+
+        /* ==================================================
+           BUKU
+        ================================================== */
+
+        .book {
+            position: relative;
+
+            width: min(900px, 94vw);
+            height: min(670px, 90vh);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.94),
+                    rgba(255,251,253,0.99)
+                );
+
+            border-radius:
+                7px 14px 14px 7px;
+
+            border:
+                1px solid rgba(184,112,143,0.18);
+
+            box-shadow:
+                -12px 0 0 rgba(208,139,169,0.18),
+                -18px 0 25px rgba(106,57,81,0.10),
+                0 20px 45px rgba(106,57,81,0.18);
+
+            transform:
+                perspective(1500px)
+                rotateY(-1.5deg)
+                rotateX(0.5deg);
+
+            animation:
+                pageAppear 0.7s ease;
+
+            overflow: hidden;
+        }
+
+
+        /* ==================================================
+           GARIS SISI BUKU
+        ================================================== */
+
+        .book::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 15px;
+
+            width: 3px;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(186,112,143,0.25),
+                    transparent
+                );
+
+            border-radius: 50%;
+
+            z-index: 5;
+
+            pointer-events: none;
+        }
+
+
+        /* ==================================================
+           UJUNG KERTAS
+        ================================================== */
+
+        .book::after {
+            content: "";
+
+            position: absolute;
+
+            right: -4px;
+            top: 12px;
+
+            width: 4px;
+            height: calc(100% - 24px);
+
+            border-radius:
+                0 8px 8px 0;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    #f4dce7 0px,
+                    #f4dce7 3px,
+                    #ffffff 4px,
+                    #ffffff 7px
+                );
+
+            opacity: 0.8;
+
+            z-index: 5;
+
+            pointer-events: none;
+        }
+
+
+        /* ==================================================
+           ANIMASI BUKU
+        ================================================== */
+
+        @keyframes pageAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    perspective(1500px)
+                    rotateY(-12deg)
+                    translateX(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    perspective(1500px)
+                    rotateY(-1.5deg)
+                    rotateX(0.5deg);
+            }
+
+        }
+
+
+        /* ==================================================
+           ISI BUKU
+        ================================================== */
+
+        .book-content {
+            width: 100%;
+            height: 100%;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            padding:
+                42px 50px
+                95px 55px;
+
+            scrollbar-width: thin;
+
+            scrollbar-color:
+                #e2aec5
+                transparent;
+        }
+
+
+        .book-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .book-content::-webkit-scrollbar-track {
+            background:
+                transparent;
+        }
+
+        .book-content::-webkit-scrollbar-thumb {
+            background:
+                #e2aec5;
+
+            border-radius: 20px;
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        .header {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .small-title {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: #bd7796;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+
+        .header h1 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(30px, 4vw, 43px);
+
+            color:
+                #8d4f6c;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+
+        .header p {
+            font-size: 13px;
+
+            color: #987184;
+
+            max-width: 620px;
+
+            margin: auto;
+
+            line-height: 1.6;
+        }
+
+
+        /* ==================================================
+           BADGE PERTEMUAN
+        ================================================== */
+
+        .meeting-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                7px 14px;
+
+            margin-bottom: 13px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7d2e1,
+                    #fcecf3
+                );
+
+            color:
+                #9d5775;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            box-shadow:
+                0 4px 10px rgba(126,67,91,0.07);
+        }
+
+
+        .meeting-badge span {
+            width: 23px;
+            height: 23px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.9);
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 10px;
+        }
+
+
+        /* ==================================================
+           KARTU FASE
+        ================================================== */
+
+        .phase {
+            margin-bottom: 18px;
+
+            border-radius: 17px;
+
+            overflow: hidden;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid rgba(184,112,143,0.15);
+
+            box-shadow:
+                0 6px 16px rgba(120,68,91,0.07);
+
+            animation:
+                cardAppear 0.6s ease both;
+        }
+
+
+        .phase:nth-child(2) {
+            animation-delay:
+                0.08s;
+        }
+
+        .phase:nth-child(3) {
+            animation-delay:
+                0.16s;
+        }
+
+        .phase:nth-child(4) {
+            animation-delay:
+                0.24s;
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ==================================================
+           HEADER FASE
+        ================================================== */
+
+        .phase-header {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding:
+                15px 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8d9e6,
+                    #fcecf3
+                );
+
+            border-bottom:
+                1px solid rgba(184,112,143,0.12);
+        }
+
+
+        .phase-2 .phase-header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9def2,
+                    #f7f1fa
+                );
+        }
+
+
+        .phase-3 .phase-header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #dcefe7,
+                    #f3faf6
+                );
+        }
+
+
+        .phase-number {
+            width: 40px;
+            height: 40px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.9);
+
+            color:
+                #a75c7c;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 3px 8px rgba(120,68,91,0.08);
+        }
+
+
+        .phase-2 .phase-number {
+            color:
+                #805e94;
+        }
+
+
+        .phase-3 .phase-number {
+            color:
+                #52836e;
+        }
+
+
+        .phase-header-text h2 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
+
+            color:
+                #75465b;
+
+            line-height: 1.35;
+        }
+
+
+        .phase-2 .phase-header-text h2 {
+            color:
+                #765a86;
+        }
+
+
+        .phase-3 .phase-header-text h2 {
+            color:
+                #4d7864;
+        }
+
+
+        .phase-header-text p {
+            font-size: 9px;
+
+            color:
+                #a27789;
+
+            margin-top: 3px;
+        }
+
+
+        /* ==================================================
+           ISI FASE
+        ================================================== */
+
+        .phase-content {
+            padding:
+                15px 17px 17px;
+        }
+
+
+        .phase-description {
+            font-size: 10px;
+
+            color:
+                #9b7888;
+
+            line-height: 1.55;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* ==================================================
+           GRID AKTIVITAS
+        ================================================== */
+
+        .activities {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 9px;
+        }
+
+
+        /* ==================================================
+           AKTIVITAS
+        ================================================== */
+
+        .activity {
+            position: relative;
+
+            min-height: 59px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                9px 10px;
+
+            text-decoration: none;
+
+            color: inherit;
+
+            background:
+                #fffafd;
+
+            border:
+                1px solid rgba(193,119,149,0.12);
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 3px 8px rgba(111,61,83,0.04);
+
+            transition:
+                transform 0.22s ease,
+                box-shadow 0.22s ease,
+                background 0.22s ease;
+        }
+
+
+        .activity:hover {
+            transform:
+                translateY(-3px);
+
+            background:
+                #ffffff;
+
+            box-shadow:
+                0 7px 15px rgba(111,61,83,0.12);
+        }
+
+
+        /* ==================================================
+           NOMOR
+        ================================================== */
+
+        .activity-number {
+            width: 25px;
+            height: 25px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                #f7dbe7;
+
+            color:
+                #a25877;
+
+            font-size: 9px;
+
+            font-weight: 700;
+        }
+
+
+        .phase-2 .activity-number {
+            background:
+                #e9def2;
+
+            color:
+                #805e94;
+        }
+
+
+        .phase-3 .activity-number {
+            background:
+                #dcefe7;
+
+            color:
+                #52836e;
+        }
+
+
+        /* ==================================================
+           ICON
+        ================================================== */
+
+        .activity-icon {
+            width: 32px;
+            height: 32px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+
+            background:
+                #fff0f6;
+
+            font-size: 16px;
+        }
+
+
+        .phase-2 .activity-icon {
+            background:
+                #f3edf8;
+        }
+
+
+        .phase-3 .activity-icon {
+            background:
+                #edf8f3;
+        }
+
+
+        /* ==================================================
+           TEKS
+        ================================================== */
+
+        .activity-text {
+            flex: 1;
+        }
+
+
+        .activity-text strong {
+            display: block;
+
+            color:
+                #71465a;
+
+            font-size: 11px;
+
+            line-height: 1.35;
+        }
+
+
+        .activity-text small {
+            display: block;
+
+            color:
+                #aa8494;
+
+            font-size: 8px;
+
+            margin-top: 3px;
+        }
+
+
+        /* ==================================================
+           ARROW
+        ================================================== */
+
+        .activity-arrow {
+            color:
+                #bd7694;
+
+            font-size:
+                14px;
+
+            transition:
+                transform 0.22s ease;
+        }
+
+
+        .activity:hover .activity-arrow {
+            transform:
+                translateX(3px);
+        }
+
+
+        /* ==================================================
+           FOOTER NOTE
+        ================================================== */
+
+        .learning-note {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin:
+                4px auto 0;
+
+            padding:
+                10px 15px;
+
+            max-width: 600px;
+
+            text-align: center;
+
+            color:
+                #a77e8e;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+        }
+
+
+        .learning-note span {
+            font-size: 14px;
+        }
+
+
+        /* ==================================================
+           NAVIGASI BAWAH
+        ================================================== */
+
+        .bottom-navigation {
+            position: absolute;
+
+            left: 27px;
+            right: 27px;
+            bottom: 18px;
+
+            z-index: 20;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            pointer-events: none;
+        }
+
+
+        .nav-button {
+            pointer-events: auto;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                7px 13px 7px 8px;
+
+            background:
+                rgba(255,255,255,0.94);
+
+            color:
+                #9e5775;
+
+            border:
+                1px solid rgba(194,116,149,0.20);
+
+            border-radius:
+                50px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                600;
+
+            text-decoration:
+                none;
+
+            box-shadow:
+                0 4px 10px rgba(132,72,98,0.10);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        .nav-button.next {
+            padding:
+                7px 8px 7px 13px;
+        }
+
+
+        .nav-button:hover {
+            background:
+                #ffffff;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 7px 15px rgba(132,72,98,0.15);
+        }
+
+
+        .nav-icon {
+            width: 26px;
+            height: 26px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                #f4c5d8;
+
+            color:
+                #984f70;
+
+            font-size: 15px;
+        }
+
+
+        .next .nav-icon {
+            background:
+                #edcfdf;
+        }
+
+
+        /* ==================================================
+           NOMOR HALAMAN
+        ================================================== */
+
+        .page-number {
+            position: absolute;
+
+            bottom: 26px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 20;
+
+            padding:
+                5px 12px;
+
+            border-radius:
+                30px;
+
+            background:
+                rgba(255,255,255,0.72);
+
+            color:
+                #bd829c;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                2px;
+
+            font-weight:
+                600;
+        }
+
+
+        /* ==================================================
+           TABLET
+        ================================================== */
+
+        @media (max-width: 750px) {
+
+            .page {
+                padding:
+                    18px 12px;
+            }
+
+
+            .book {
+                width:
+                    100%;
+
+                height:
+                    calc(100vh - 36px);
+
+                transform:
+                    none;
+            }
+
+
+            .book-content {
+                padding:
+                    35px 25px
+                    90px 30px;
+            }
+
+
+            .activities {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .bottom-navigation {
+                left:
+                    18px;
+
+                right:
+                    18px;
+
+                bottom:
+                    15px;
+            }
+
+        }
+
+
+        /* ==================================================
+           HP
+        ================================================== */
+
+        @media (max-width: 480px) {
+
+            .page {
+                padding:
+                    8px;
+            }
+
+
+            .book {
+                height:
+                    calc(100vh - 16px);
+
+                border-radius:
+                    7px 12px 12px 7px;
+            }
+
+
+            .book-content {
+                padding:
+                    27px 15px
+                    88px 20px;
+            }
+
+
+            .header {
+                margin-bottom:
+                    21px;
+            }
+
+
+            .small-title {
+                font-size:
+                    8px;
+
+                letter-spacing:
+                    2px;
+            }
+
+
+            .meeting-badge {
+                font-size:
+                    8px;
+
+                padding:
+                    6px 11px;
+            }
+
+
+            .meeting-badge span {
+                width:
+                    20px;
+
+                height:
+                    20px;
+            }
+
+
+            .header h1 {
+                font-size:
+                    27px;
+            }
+
+
+            .header p {
+                font-size:
+                    10px;
+            }
+
+
+            .phase {
+                border-radius:
+                    15px;
+
+                margin-bottom:
+                    15px;
+            }
+
+
+            .phase-header {
+                padding:
+                    12px;
+
+                gap:
+                    9px;
+            }
+
+
+            .phase-number {
+                width:
+                    36px;
+
+                height:
+                    36px;
+
+                font-size:
+                    13px;
+            }
+
+
+            .phase-header-text h2 {
+                font-size:
+                    13px;
+            }
+
+
+            .phase-header-text p {
+                font-size:
+                    8px;
+            }
+
+
+            .phase-content {
+                padding:
+                    13px 12px
+                    14px;
+            }
+
+
+            .phase-description {
+                font-size:
+                    9px;
+            }
+
+
+            .activity {
+                min-height:
+                    54px;
+
+                padding:
+                    8px;
+            }
+
+
+            .activity-number {
+                width:
+                    23px;
+
+                height:
+                    23px;
+            }
+
+
+            .activity-icon {
+                width:
+                    28px;
+
+                height:
+                    28px;
+
+                font-size:
+                    14px;
+            }
+
+
+            .activity-text strong {
+                font-size:
+                    10px;
+            }
+
+
+            .activity-text small {
+                font-size:
+                    7px;
+            }
+
+
+            .activity-arrow {
+                font-size:
+                    12px;
+            }
+
+
+            .bottom-navigation {
+                left:
+                    12px;
+
+                right:
+                    12px;
+
+                bottom:
+                    12px;
+            }
+
+
+            .nav-button {
+                padding:
+                    5px 9px 5px 6px;
+
+                font-size:
+                    8px;
+            }
+
+
+            .nav-button.next {
+                padding:
+                    5px 6px 5px 9px;
+            }
+
+
+            .nav-icon {
+                width:
+                    23px;
+
+                height:
+                    23px;
+
+                font-size:
+                    13px;
+            }
+
+
+            .page-number {
+                display:
+                    none;
+            }
+
+        }
+
+
+        /* ==================================================
+           HP SANGAT KECIL
+        ================================================== */
+
+        @media (max-width: 360px) {
+
+            .book-content {
+                padding:
+                    23px 12px
+                    84px 16px;
+            }
+
+
+            .header h1 {
+                font-size:
+                    24px;
+            }
+
+
+            .nav-button {
+                font-size:
+                    7px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     DEKORASI
+================================================== -->
+
+<div class="decor one"></div>
+<div class="decor two"></div>
+<div class="decor three"></div>
+
+
+
+<!-- ==================================================
+     HALAMAN BUKU
+================================================== -->
+
+<main class="page">
+
+
+<section class="book">
+
+
+<div class="book-content">
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="header">
+
+    <div class="meeting-badge">
+
+        <span>01</span>
+
+        PERTEMUAN 1
+
+    </div>
+
+
+    
+
+
+    <h1>
+        Kegiatan Pembelajaran
+    </h1>
+
+
+    <p>
+        Ikuti setiap kegiatan secara bertahap untuk
+        mengeksplorasi, memahami, dan menerapkan
+        konsep yang dipelajari.
+    </p>
+
+</header>
+
+
+
+<!-- ==================================================
+     FASE 1
+================================================== -->
+
+<section class="phase phase-1">
+
+
+    <div class="phase-header">
+
+        <div class="phase-number">
+            01
+        </div>
+
+
+        <div class="phase-header-text">
+
+            <h2>
+                Contextual Scientific Exploration
+            </h2>
+
+           
+        </div>
+
+    </div>
+
+
+    <div class="phase-content">
+
+
+        <p class="phase-description">
+            Amati, pikirkan, dan pahami fenomena yang disajikan
+            sebelum mempelajari materi lebih lanjut.
+        </p>
+
+
+        <div class="activities">
+
+
+            <!-- AKTIVITAS 1 -->
+
+            <a
+                href="video1-p1.html"
+                class="activity"
+            >
+
+              
+
+                <span class="activity-icon">
+                    🎬
+                </span>
+
+                <span class="activity-text">
+
+                    <strong>
+                        Mengamati Video 
+                    </strong>
+
+                    <small>
+                        Mengamati Video & berpikir mandiri
+                    </small>
+
+                </span>
+
+                <span class="activity-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+        
+
+            
+
+            <!-- AKTIVITAS 2 -->
+
+            <a
+                href="materi-p1.html"
+                class="activity"
+            >
+
+               
+
+                <span class="activity-icon">
+                    📖
+                </span>
+
+                <span class="activity-text">
+
+                    <strong>
+                        Materi Pembelajaran
+                    </strong>
+
+                    <small>
+                         Pelajari Materi Pembelajaran
+
+                    </small>
+
+                </span>
+
+                <span class="activity-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <!-- AKTIVITAS 3 -->
+
+            <a
+                href="kuis-p1.html"
+                class="activity"
+            >
+
+               
+                <span class="activity-icon">
+                    📝
+                </span>
+
+                <span class="activity-text">
+
+                    <strong>
+                        Kuis
+                    </strong>
+
+                    <small>
+                        Kuis Pra-Pembelajaran 
+                    </small>
+
+                </span>
+
+                <span class="activity-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FASE 2
+================================================== -->
+
+<section class="phase phase-2">
+
+
+    <div class="phase-header">
+
+        <div class="phase-number">
+            02
+        </div>
+
+
+        <div class="phase-header-text">
+
+            <h2>
+                Scientific Inquiry and Knowledge Construction
+            </h2>
+
+           
+
+        </div>
+
+    </div>
+
+
+    <div class="phase-content">
+
+
+        <p class="phase-description">
+            Gunakan hasil pengamatan untuk melakukan penyelidikan,
+            menjawab pertanyaan, dan menguji pemahaman.
+        </p>
+
+
+        <div class="activities">
+
+
+            <!-- AKTIVITAS 1 -->
+
+            <a
+                href="kegiatan-p1.html"
+                class="activity"
+            >
+
+                
+                <span class="activity-icon">
+                    📋
+                </span>
+
+                <span class="activity-text">
+
+                    <strong>
+                        Kegiatan Belajar
+                    </strong>
+
+                    <small>
+                        Kegiatan Belajar 1
+                    </small>
+
+                </span>
+
+                <span class="activity-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+         
+
+
+            <!-- AKTIVITAS 3 -->
+
+            <a
+                href="formatif-p1.html"
+                class="activity"
+            >
+
+
+                <span class="activity-icon">
+                    📊
+                </span>
+
+                <span class="activity-text">
+
+                    <strong>
+                        Tes Formatif
+                    </strong>
+
+                    <small>
+                        Google Form
+                    </small>
+
+                </span>
+
+                <span class="activity-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FASE 3
+================================================== -->
+
+<section class="phase phase-3">
+
+
+    <div class="phase-header">
+
+        <div class="phase-number">
+            03
+        </div>
+
+
+        <div class="phase-header-text">
+
+            <h2>
+                Reflection and Real-Life Application
+            </h2>
+
+            
+
+        </div>
+
+    </div>
+
+
+    <div class="phase-content">
+
+
+        <p class="phase-description">
+            Hubungkan pengetahuan yang diperoleh dengan
+            pengalaman dan kehidupan sehari-hari.
+        </p>
+
+
+        <div class="activities">
+
+
+            <!-- AKTIVITAS 1 -->
+
+            <a
+                href="tugas-p1.html"
+                class="activity"
+            >
+
+                
+
+                <span class="activity-icon">
+                    📄
+                </span>
+
+                <span class="activity-text">
+
+                    <strong>
+                        Tugas
+                    </strong>
+
+                    <small>
+                        Mengerjakan Tugas
+                    </small>
+
+                </span>
+
+                <span class="activity-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CATATAN
+================================================== -->
+
+<div class="learning-note">
+
+    <span>💡</span>
+
+    <p>
+        Pilih kegiatan untuk mulai belajar.
+        Setiap aktivitas dapat dibuka kapan saja.
+    </p>
+
+</div>
+
+
+</div>
+<!-- END BOOK CONTENT -->
+
+
+
+<!-- ==================================================
+     NAVIGASI
+================================================== -->
+
+<nav class="bottom-navigation">
+
+
+    <!-- KEMBALI -->
+
+    <a
+        href="menu.html"
+        class="nav-button"
+    >
+
+        <span class="nav-icon">
+            ←
+        </span>
+
+        <span>
+            Kembali ke Menu
+        </span>
+
+    </a>
+
+
+
+    <!-- LANJUT -->
+
+    <a
+        href="kegiatanbelajar2.html"
+        class="nav-button next"
+    >
+
+        <span>
+            Pertemuan 2
+        </span>
+
+        <span class="nav-icon">
+            →
+        </span>
+
+    </a>
+
+
+</nav>
+
+
+
+<!-- ==================================================
+     NOMOR HALAMAN
+================================================== -->
+
+<div class="page-number">
+
+   &nbsp;&nbsp;PERTEMUAN 1
+
+</div>
+
+
+</section>
+
+</main>
+
+
+</body>
+</html>

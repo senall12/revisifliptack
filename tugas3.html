@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas 3 | FLIPTACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="card header-belajar">
+    <h2>🫁 Tugas 3</h2>
+    <p class="subtitle">Gangguan Pernapasan pada Manusia</p>
+  </div>
+
+  <!-- TUJUAN -->
+  <div class="card info-box">
+    <h3>🎯 Tujuan</h3>
+
+    <p style="margin-bottom:16px;">
+      Kegiatan ini bertujuan untuk melatih kemampuan literasi sains, yaitu kemampuan untuk:
+    </p>
+
+    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:18px;">
+      <div style="display:flex; align-items:flex-start; gap:10px; background:#fff7fb; padding:12px 14px; border-radius:14px;">
+        <span style="font-size:1.2rem;">📖</span>
+        <span>Memahami informasi ilmiah.</span>
+      </div>
+
+      <div style="display:flex; align-items:flex-start; gap:10px; background:#fff7fb; padding:12px 14px; border-radius:14px;">
+        <span style="font-size:1.2rem;">📊</span>
+        <span>Menafsirkan data atau bukti yang tersedia.</span>
+      </div>
+
+      <div style="display:flex; align-items:flex-start; gap:10px; background:#fff7fb; padding:12px 14px; border-radius:14px;">
+        <span style="font-size:1.2rem;">💡</span>
+        <span>Menggunakan informasi tersebut untuk membuat keputusan yang baik bagi kesehatan diri dan lingkungan.</span>
+      </div>
+    </div>
+
+  
+  </div>
+
+
+ 
+ <!-- PANDUAN -->
+
+       <div class="card info-box panduan-tugas-box" style="margin-top:20px;">
+      <h3>📌 Cara Mengerjakan</h3>
+<br>
+
+      <div class="panduan-item">
+        <div class="panduan-number">1</div>
+        <div class="panduan-text">
+          Isi nama, kelas, dan nama sekolahmu pada Google Form dibawah ini.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">2</div>
+        <div class="panduan-text">
+          Jawab semua pertanyaan sesuai hasil pengamatanmu.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">3</div>
+        <div class="panduan-text">
+          Jika sudah selesai, tekan tombol <strong>Kirim/Submit</strong>.
+        </div>
+      </div>
+</div>
+
+
+<!-- TUGAS GFORM -->
+  <div class="card soft">
+    <div class="section-title">
+         </div>
+
+       <div class="heyzine-container portrait">
+      <iframe   src="https://docs.google.com/forms/d/e/1FAIpQLSf30ofY_1ZQ2zwHegrx1HAxKfOZe2DumMUVeTUBvZzCCEWXlw/viewform?usp=header"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+
+
+ <!-- FEEDBACK -->
+  <div class="card selesai-box">
+    <p>
+      Setelah mengerjakan Tugas, klik tombol di bawah untuk lanjut.
+    </p>
+  </div>
+
+    <!-- NAVIGATION -->
+  <div class="nav-buttons" style="display:flex; justify-content:flex-end; margin-top:16px;">
+    <a href="refleksi1.html" class="button big" onclick="showPopupRefleksi(event)">
+      ✅ Saya Sudah Mengerjakan Tugas, lanjut Refleksi ➜
+    </a>
+  </div>
+
+</div>
+
+<!-- POPUP LANJUT REFLEKSI -->
+<div id="popupRefleksi" class="popup">
+  <div class="popup-content">
+    <h3>🎉 Hebat!</h3>
+    <p>
+      Kamu sudah menyelesaikan tugas dengan baik.
+      <br><br>
+      Sekarang saatnya mengisi refleksi pembelajaran.
+    </p>
+    <button onclick="lanjutRefleksi()">Lanjut ➜</button>
+  </div>
+</div>
+
+<script>
+function showPopupRefleksi(event) {
+  event.preventDefault();
+  document.getElementById("popupRefleksi").style.display = "flex";
+}
+
+function lanjutRefleksi() {
+  localStorage.setItem("post3-refleksi", "open");
+  window.location.href = "refleksi3.html";
+}
+</script>
+
+
+
+</body>
+</html>

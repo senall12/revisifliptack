@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materi Pembelajaran | FLIPTACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="card header-belajar">
+    <h2>Materi Pembelajaran</h2>
+    <p class="subtitle">Sistem Organ Pernapasan Manusia</p>
+  </div>
+
+  <!-- MATERI -->
+  <div class="card soft">
+    <div class="section-title">
+      <span class="icon">📘</span>
+      <h3>Materi Pembelajaran</h3>
+    </div>
+
+    <p class="hint">
+      Pelajari materi berikut dengan seksama.
+    </p>
+
+    <div class="heyzine-container portrait">
+      <iframe src=https://online.anyflip.com/ufmpz/uoyo/index.html></iframe>
+    </div>
+  </div>
+  
+  
+
+<!-- KOMIK -->
+  <div class="card soft">
+    <div class="section-title">
+      <span class="icon">📖</span>
+      <h3>Komik Pembelajaran</h3>
+    </div>
+
+    <p class="hint">
+  Bacalah komik berikut untuk memperkuat pemahamanmu.
+    </p>
+
+    <div class="heyzine-container portrait">
+    <iframe src="https://online.anyflip.com/ufmpz/etan/index.html"></iframe>
+    </div>
+  </div>
+<!-- FEEDBACK -->
+  <div class="card selesai-box">
+    <p>
+      Setelah selesai mempelajari materi dan membaca komik, klik tombol di bawah untuk melanjutkan ke kuis.
+    </p>
+  </div>
+
+
+  <!-- NAV -->
+  <div class="nav-buttons">
+    <a href="kegiatanbelajar1.html"</a>
+<a href="kuis1.html" class="button big" onclick="showPopup(event)">
+  Lanjut ke Kuis ➜
+</a>  </div>
+
+</div>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>🎉 Hebat!</h3>
+    <p>Kamu sudah mempelajari materi dan membaca komik dengan baik.</p>
+    <button onclick="goToKuis()">Lanjut ke Kuis ➜</button>
+  </div>
+</div>
+
+<script>
+function showPopup(event) {
+  event.preventDefault();
+  document.getElementById("popup").style.display = "flex";
+}
+
+function goToKuis() {
+  window.location.href = "kuis1.html";
+}
+</script>
+
+
+
+
+</body>
+</html>

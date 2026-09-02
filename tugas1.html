@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas 1 | FLIPTACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="card header-belajar">
+    <h2>🫁 Tugas 1</h2>
+    <p class="subtitle">Mengamati Perubahan Frekuensi Napas</p>
+  </div>
+
+  <!-- TUJUAN -->
+  <div class="card info-box">
+    <h3>🎯 Tujuan</h3>
+<br>
+    <p>
+      Melalui kegiatan ini, kamu akan mengamati perubahan frekuensi napas saat beristirahat dan setelah beraktivitas.
+    </p>
+  </div>
+
+  
+  <!-- ALAT DAN BAHAN -->
+  <div class="card soft">
+    <div class="section-title">
+      <span class="icon">🔍</span><h3>Siapkan Alat dan Bahan</h3>
+    </div>
+
+    <div class="alat-grid">
+      <div class="alat-item">⏱️ Stopwatch / Jam</div>
+      <div class="alat-item">📱 HP / Laptop</div>
+      <div class="alat-item">✏️ Alat Tulis</div>
+      <div class="alat-item">📖 Buku Tulis</div>
+    </div>
+  </div>
+
+ 
+  <!-- PANDUAN -->
+
+       <div class="card info-box panduan-tugas-box" style="margin-top:20px;">
+      <h3>📌 Cara Mengerjakan</h3>
+<br>
+
+      <div class="panduan-item">
+        <div class="panduan-number">1</div>
+        <div class="panduan-text">
+          Isi nama, kelas, dan nama sekolahmu pada Google Form dibawah ini.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">2</div>
+        <div class="panduan-text">
+          Jawab semua pertanyaan sesuai hasil pengamatanmu.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">3</div>
+        <div class="panduan-text">
+          Jika sudah selesai, tekan tombol <strong>Kirim/Submit</strong>.
+        </div>
+      </div>
+</div>
+
+
+<!-- TUGAS GFORM -->
+  <div class="card soft">
+    <div class="section-title">
+         </div>
+
+       <div class="heyzine-container portrait">
+      <iframe   src="https://docs.google.com/forms/d/e/1FAIpQLSesKi3wnmNWEWqjqmot3uhf3C-oRunSv70NcRf2WkO4R7o4iA/viewform"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+<!-- FEEDBACK -->
+  <div class="card selesai-box">
+    <p>
+      Setelah mengerjakan Tugas, klik tombol di bawah untuk lanjut.
+    </p>
+  </div>
+
+    <!-- NAVIGATION -->
+  <div class="nav-buttons" style="display:flex; justify-content:flex-end; margin-top:16px;">
+    <a href="refleksi1.html" class="button big" onclick="showPopupRefleksi(event)">
+      ✅ Saya Sudah Mengerjakan Tugas, lanjut Refleksi ➜
+    </a>
+  </div>
+
+</div>
+
+<!-- POPUP LANJUT REFLEKSI -->
+<div id="popupRefleksi" class="popup">
+  <div class="popup-content">
+    <h3>🎉 Hebat!</h3>
+    <p>
+      Kamu sudah menyelesaikan tugas dengan baik.
+      <br><br>
+      Sekarang saatnya mengisi refleksi pembelajaran.
+    </p>
+    <button onclick="lanjutRefleksi()">Lanjut ➜</button>
+  </div>
+</div>
+
+<script>
+function showPopupRefleksi(event) {
+  event.preventDefault();
+  document.getElementById("popupRefleksi").style.display = "flex";
+}
+
+function lanjutRefleksi() {
+  localStorage.setItem("post-refleksi", "open");
+  window.location.href = "refleksi1.html";
+}
+</script>
+
+</body>
+</html>

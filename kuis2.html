@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis 2 | FLIPTACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="card header-belajar">
+    <h2>Kuis Interaktif</h2>
+    <p class="subtitle">Bagaimana Kita Bernapas?</p>
+  </div>
+
+  <!-- KUIS -->
+  <div class="card soft">
+    <p class="hint" style="text-align:center;">
+      Kerjakan kuis berikut sampai selesai ya 😊
+    </p>
+
+    <div class="quiz-container">
+      <iframe 
+        src="https://wordwall.net/id/embed/05f5fab2b33a43be8953c18cd450605a?themeId=1&templateId=5&fontStackId=0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+<!-- FEEDBACK -->
+  <div class="card selesai-box">
+    <p>
+      Setelah selesai mengerjakan kuis, klik tombol di bawah    </p>
+  </div>
+
+
+  <!-- NAV -->
+  <div class="nav-buttons">
+    <a href="materipembelajaran2.html"
+    </a>
+
+    <a href="kegiatanbelajar2.html" class="button big" onclick="showPopupSelesai(event)">
+      Selesai ➜
+    </a>
+  </div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popupSelesai" class="popup">
+  <div class="popup-content">
+    <h3>🎉 Hebat!</h3>
+    <p>
+      Kamu sudah menyelesaikan pembelajaran mandiri di rumah.
+      <br><br>
+      Selanjutnya, mari kita lanjutkan pembelajaran di sekolah bersama guru dan teman-temanmu!
+    </p>
+    <button onclick="lanjutKegiatan()">Lanjut ➜</button>
+  </div>
+</div>
+
+<script>
+function showPopupSelesai(event) {
+  event.preventDefault();
+  document.getElementById("popupSelesai").style.display = "flex";
+}
+
+function lanjutKegiatan() {
+  localStorage.setItem("in2-open", "open");
+  window.location.href = "kegiatanbelajar2.html";
+}
+</script>
+
+</body>
+</html>

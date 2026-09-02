@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Kegiatan Belajar | FLIPTACK</title>
+
+
+<style>
+
+/* =====================================================
+   DASAR
+===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at top left,
+            #ffeaf4,
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            #f9d8e8,
+            transparent 45%
+        ),
+
+        #f8e8ef;
+
+    color:#4b3942;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:25px;
+
+}
+
+
+/* =====================================================
+   BOOK
+===================================================== */
+
+.book{
+
+    width:min(1100px,96vw);
+
+    height:min(820px,92vh);
+
+    background:#fffdfb;
+
+    border-radius:18px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        0 25px 60px rgba(115,65,85,.20),
+
+        0 5px 15px rgba(115,65,85,.10);
+
+    border:1px solid #efd8e1;
+
+}
+
+
+/* =====================================================
+   BOOK SPINE
+===================================================== */
+
+.book::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    bottom:0;
+
+    left:0;
+
+    width:18px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            rgba(120,80,95,.10),
+            rgba(255,255,255,0)
+        );
+
+    z-index:3;
+
+    pointer-events:none;
+
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.book-content{
+
+    height:100%;
+
+    overflow-y:auto;
+
+    padding:35px 45px 105px;
+
+    scroll-behavior:smooth;
+
+}
+
+
+.book-content::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+
+.book-content::-webkit-scrollbar-track{
+
+    background:#f8e9ef;
+
+}
+
+
+.book-content::-webkit-scrollbar-thumb{
+
+    background:#dca6ba;
+
+    border-radius:20px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.book-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid #efdde4;
+
+}
+
+
+.brand{
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    color:#a05d78;
+
+}
+
+
+.bookmark{
+
+    background:#f5d8e3;
+
+    color:#8e506a;
+
+    padding:7px 14px;
+
+    border-radius:20px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-bottom:18px;
+
+}
+
+
+.badge{
+
+    padding:7px 13px;
+
+    border-radius:20px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+
+.badge-pink{
+
+    background:#f8dbe7;
+
+    color:#92546e;
+
+}
+
+
+.badge-light{
+
+    background:#f7edf1;
+
+    color:#8b6875;
+
+}
+
+
+/* =====================================================
+   JUDUL
+===================================================== */
+
+h1{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:32px;
+
+    line-height:1.25;
+
+    color:#743f58;
+
+    margin:10px 0 10px;
+
+}
+
+
+.subtitle{
+
+    color:#806d75;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin:0 0 25px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.activity-intro{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    background:#fff7fa;
+
+    border:1px solid #efd9e2;
+
+    border-radius:15px;
+
+    padding:17px 20px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+        0 7px 18px rgba(130,75,95,.06);
+
+}
+
+
+.activity-icon{
+
+    width:44px;
+
+    height:44px;
+
+    min-width:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#f4d3df;
+
+    border-radius:50%;
+
+    font-size:22px;
+
+}
+
+
+.activity-intro p{
+
+    margin:0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    color:#6b5961;
+
+}
+
+
+.activity-intro strong{
+
+    color:#81445e;
+
+}
+
+
+/* =====================================================
+   FLIPBOOK CARD
+===================================================== */
+
+.flipbook-card{
+
+    background:#fff;
+
+    border:1px solid #ead8e0;
+
+    border-radius:18px;
+
+    padding:14px;
+
+    box-shadow:
+
+        0 10px 28px rgba(130,75,95,.10);
+
+}
+
+
+/* =====================================================
+   FLIPBOOK HEADER
+===================================================== */
+
+.flipbook-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:8px 8px 13px;
+
+    gap:12px;
+
+}
+
+
+.flipbook-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+}
+
+
+.flipbook-title-icon{
+
+    width:36px;
+
+    height:36px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#f4d3df;
+
+    border-radius:10px;
+
+    font-size:19px;
+
+}
+
+
+.flipbook-title span{
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#7d425b;
+
+}
+
+
+.flipbook-label{
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    color:#986277;
+
+    background:#f8e8ee;
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+}
+
+
+/* =====================================================
+   ANYFLIP
+===================================================== */
+
+.flipbook-wrapper{
+
+    width:100%;
+
+    height:530px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:13px;
+
+    background:#f3e8ed;
+
+}
+
+
+.flipbook-wrapper iframe{
+
+    width:100% !important;
+
+    height:100% !important;
+
+    border:none;
+
+    display:block;
+
+}
+
+
+/* =====================================================
+   INFO FLIPBOOK
+===================================================== */
+
+.flipbook-info{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:13px 5px 3px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    color:#8a707b;
+
+    text-align:center;
+
+}
+
+
+/* =====================================================
+   CATATAN
+===================================================== */
+
+.activity-note{
+
+    margin-top:22px;
+
+    padding:16px 18px;
+
+    background:#f9edf2;
+
+    border-left:4px solid #d79ab1;
+
+    border-radius:10px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    color:#725f67;
+
+}
+
+
+.activity-note strong{
+
+    color:#81445e;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.book-navigation{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:75px;
+
+    background:
+        rgba(255,253,251,.96);
+
+    backdrop-filter:blur(10px);
+
+    border-top:1px solid #ead9e0;
+
+    display:grid;
+
+    grid-template-columns:1fr auto 1fr;
+
+    align-items:center;
+
+    padding:0 25px;
+
+    z-index:10;
+
+}
+
+
+.nav-button{
+
+    text-decoration:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:10px 17px;
+
+    border-radius:25px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.2s;
+
+}
+
+
+.nav-prev{
+
+    justify-self:start;
+
+    background:#f7e6ed;
+
+    color:#82455e;
+
+}
+
+
+.nav-next{
+
+    justify-self:end;
+
+    background:#dca5ba;
+
+    color:#fff;
+
+}
+
+
+.nav-button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(130,75,95,.15);
+
+}
+
+
+.page-number{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:12px;
+
+    color:#96707e;
+
+    letter-spacing:1px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET / HP
+===================================================== */
+
+@media(max-width:700px){
+
+    body{
+
+        padding:10px;
+
+        align-items:flex-start;
+
+    }
+
+
+    .book{
+
+        width:100%;
+
+        height:calc(100vh - 20px);
+
+        border-radius:14px;
+
+    }
+
+
+    .book-content{
+
+        padding:
+            25px
+            18px
+            100px;
+
+    }
+
+
+    .brand{
+
+        font-size:9px;
+
+        letter-spacing:1.2px;
+
+    }
+
+
+    .bookmark{
+
+        font-size:8px;
+
+        padding:6px 9px;
+
+    }
+
+
+    h1{
+
+        font-size:25px;
+
+    }
+
+
+    .subtitle{
+
+        font-size:13px;
+
+    }
+
+
+    .activity-intro{
+
+        padding:14px 16px;
+
+    }
+
+
+    .activity-icon{
+
+        width:40px;
+
+        height:40px;
+
+        min-width:40px;
+
+        font-size:20px;
+
+    }
+
+
+    .activity-intro p{
+
+        font-size:12px;
+
+    }
+
+
+    .flipbook-card{
+
+        padding:9px;
+
+    }
+
+
+    .flipbook-header{
+
+        padding:
+            6px
+            5px
+            10px;
+
+    }
+
+
+    .flipbook-title span{
+
+        font-size:14px;
+
+    }
+
+
+    .flipbook-title-icon{
+
+        width:32px;
+
+        height:32px;
+
+        font-size:17px;
+
+    }
+
+
+    .flipbook-label{
+
+        font-size:8px;
+
+        padding:5px 8px;
+
+    }
+
+
+    .flipbook-wrapper{
+
+        height:480px;
+
+    }
+
+
+    .flipbook-info{
+
+        font-size:10px;
+
+        padding:
+            11px
+            4px
+            2px;
+
+    }
+
+
+    .activity-note{
+
+        font-size:11px;
+
+    }
+
+
+    .book-navigation{
+
+        height:68px;
+
+        padding:0 12px;
+
+    }
+
+
+    .nav-button{
+
+        padding:9px 11px;
+
+        font-size:10px;
+
+    }
+
+
+    .page-number{
+
+        font-size:9px;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE HP KECIL
+===================================================== */
+
+@media(max-width:420px){
+
+    .book-content{
+
+        padding-left:14px;
+
+        padding-right:14px;
+
+    }
+
+
+    .bookmark{
+
+        display:none;
+
+    }
+
+
+    h1{
+
+        font-size:24px;
+
+    }
+
+
+    .flipbook-wrapper{
+
+        height:430px;
+
+    }
+
+
+    .flipbook-title span{
+
+        font-size:13px;
+
+    }
+
+
+    .flipbook-label{
+
+        display:none;
+
+    }
+
+
+    .activity-note{
+
+        padding:
+            14px
+            15px;
+
+        font-size:11px;
+
+    }
+
+
+    .nav-button{
+
+        padding:
+            8px
+            9px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="book">
+
+
+    <div class="book-content">
+
+
+        <!-- =====================================================
+             HEADER
+        ===================================================== -->
+
+        <div class="book-header">
+
+            <div class="brand">
+
+                FLIPTACK • E-MODUL BERBASIS TPACK
+
+            </div>
+
+
+            <div class="bookmark">
+
+                SISTEM PERNAPASAN MANUSIA
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             BADGES
+        ===================================================== -->
+
+        <div class="badges">
+
+
+            <div class="badge badge-pink">
+
+                PERTEMUAN 1
+
+            </div>
+
+
+            <div class="badge badge-light">
+
+                FASE 2 • SCIENTIFIC INQUIRY AND KNOWLEDGE CONSTRUCTION
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =====================================================
+             JUDUL
+        ===================================================== -->
+
+        <h1>
+
+            Kegiatan Belajar
+
+        </h1>
+
+
+        <!-- =====================================================
+             INTRO
+        ===================================================== -->
+
+        <div class="activity-intro">
+
+
+            <div class="activity-icon">
+
+                🔎
+
+            </div>
+
+
+            <p>
+
+                <strong>
+                    Yuk, mulai kegiatan!
+                </strong>
+
+                <br>
+
+                Buka buku kegiatan berikut dan ikuti petunjuk
+                yang tersedia di dalamnya. Amati, lakukan,
+                diskusikan, dan tuliskan hasil kegiatanmu
+                sesuai dengan instruksi.
+
+            </p>
+
+
+        </div>
+
+
+        <!-- =====================================================
+             FLIPBOOK
+        ===================================================== -->
+
+        <div class="flipbook-card">
+
+
+            <div class="flipbook-header">
+
+
+                <div class="flipbook-title">
+
+
+                    <div class="flipbook-title-icon">
+
+                        📖
+
+                    </div>
+
+
+                    <span>
+
+                        Kegiatan Belajar 1
+
+                    </span>
+
+
+                </div>
+
+
+                <div class="flipbook-label">
+
+                    KEGIATAN
+
+                </div>
+
+
+            </div>
+
+
+            <div class="flipbook-wrapper">
+
+
+                <iframe
+
+                    src="https://online.anyflip.com/kwiag/owyg/index.html"
+
+                    title="Kegiatan Belajar 1 FLIPTACK"
+
+                    seamless="seamless"
+
+                    scrolling="no"
+
+                    frameborder="0"
+
+                    allowtransparency="true"
+
+                    allowfullscreen="true">
+
+                </iframe>
+
+
+            </div>
+
+
+            <div class="flipbook-info">
+
+                📖 Geser halaman atau gunakan tombol pada buku
+                untuk mengikuti kegiatan secara berurutan.
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =====================================================
+             CATATAN
+        ===================================================== -->
+
+        <div class="activity-note">
+
+
+            <strong>
+
+                💡 Selanjutnya:
+
+            </strong>
+
+            <span>
+
+                kerjakan Kegiatan Belajar 1 secara berkelompok
+                pada halaman berikutnya.
+
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
+
+    <div class="book-navigation">
+
+
+        <a
+
+            href="kuis-p1.html"
+
+            class="nav-button nav-prev">
+
+            ← Kuis
+
+        </a>
+
+
+        <div class="page-number">
+
+            08 / KEGIATAN BELAJAR 1
+
+        </div>
+
+
+        <a
+
+            href="kelompok-p1.html"
+
+            class="nav-button nav-next">
+
+            Kerjakan Tugas Kelompok →
+
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

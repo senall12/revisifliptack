@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refleksi 2 | FLIPTACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="card header-belajar refleksi-header">
+    <div class="emoji-besar">💭</div>
+    <h2>Refleksi Pembelajaran</h2>
+    <p class="subtitle">
+      Yuk, ingat kembali apa yang sudah kamu pelajari hari ini!
+    </p>
+  </div>
+
+  <!-- UCAPAN -->
+  <div class="card info-box refleksi-intro">
+    <h3>🌟 Hebat!</h3>
+    <p>
+      Kamu sudah menyelesaikan kegiatan belajar, tes formatif, dan tugas.
+      Sekarang saatnya menuliskan pendapatmu tentang pembelajaran hari ini.
+    </p>
+  </div>
+
+   <!-- PANDUAN -->
+       <div class="card info-box panduan-tugas-box" style="margin-top:20px;">
+      <h3>📌 Cara Mengisi Refleksi</h3>
+<br>
+
+      <div class="panduan-item">
+        <div class="panduan-number">1</div>
+        <div class="panduan-text">
+          Isi namamu dan nama sekolahmu pada Google Form dibawah ini.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">2</div>
+        <div class="panduan-text">
+          Jawab semua pertanyaan refleksi.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">3</div>
+        <div class="panduan-text">
+          Jika sudah selesai, tekan tombol <strong>Kirim/Submit</strong>.
+        </div>
+      </div>
+</div>
+
+<!-- Refleksi GFORM -->
+  <div class="card soft">
+    <div class="section-title">
+         </div>
+
+       <div class="heyzine-container portrait">
+      <iframe   src="https://forms.gle/EBnhG2UfriLJtx3U7"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+<!-- FEEDBACK -->
+  <div class="card selesai-box">
+    <p>
+      Setelah mengerjakan Refleksi, klik tombol di bawah untuk lanjut.
+    </p>
+  </div>
+
+ 
+   <!-- Tombol -->
+<div class="nav-buttons" style="display:flex; justify-content:right; margin-top:20px;">
+  <a href="menu.html" class="button big" onclick="showPopupRefleksi(event)">
+   ✅Sudah Selesai Mengisi Refleksi ➜
+  </a>
+</div>
+
+<!-- POPUP -->
+<div id="popupRefleksi" class="popup">
+  <div class="popup-content">
+    <h3>🎉 Selamat!</h3>
+    <p>
+      Kamu telah menyelesaikan seluruh kegiatan belajar hari ini.
+      <br><br>
+      Terima kasih sudah belajar dengan semangat 😊
+    </p>
+    <button onclick="goToMenu()">Kembali ke Menu ➜</button>
+  </div>
+</div>
+
+<script>
+function showPopupRefleksi(event) {
+  event.preventDefault();
+  document.getElementById("popupRefleksi").style.display = "flex";
+}
+
+function goToMenu() {
+  window.location.href = "menu.html";
+}
+</script>
+
+<script>
+function goToMenu() {
+  localStorage.setItem("post2-refleksi", "open");
+  window.location.href = "menu.html";
+}
+</script>
+
+</body>
+</html>

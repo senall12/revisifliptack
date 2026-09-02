@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu Pembelajaran | FLIPTACK</title>
+
+    <style>
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* ==================================================
+           BODY
+        ================================================== */
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 8% 8%,
+                    rgba(255,255,255,.85) 0%,
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 92% 90%,
+                    rgba(244,190,210,.45) 0%,
+                    transparent 32%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f3d5e2,
+                    #fff8fb,
+                    #efd0dd
+                );
+
+            color: #633f4f;
+        }
+
+
+        /* ==================================================
+           DEKORASI LATAR
+        ================================================== */
+
+        .decor {
+            position: fixed;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .decor.one {
+            width: 290px;
+            height: 290px;
+
+            top: -125px;
+            left: -90px;
+
+            background:
+                rgba(255,255,255,.38);
+        }
+
+        .decor.two {
+            width: 360px;
+            height: 360px;
+
+            right: -150px;
+            bottom: -155px;
+
+            background:
+                rgba(220,153,181,.16);
+        }
+
+        .decor.three {
+            width: 95px;
+            height: 95px;
+
+            right: 11%;
+            top: 10%;
+
+            background:
+                rgba(255,255,255,.34);
+        }
+
+        .decor.four {
+            width: 45px;
+            height: 45px;
+
+            left: 12%;
+            bottom: 15%;
+
+            background:
+                rgba(255,255,255,.28);
+        }
+
+
+        /* ==================================================
+           PAGE
+        ================================================== */
+
+        .page {
+            position: relative;
+
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 1;
+        }
+
+
+        /* ==================================================
+           BOOK
+        ================================================== */
+
+        .book {
+            position: relative;
+
+            width: min(900px, 95vw);
+            height: min(700px, 92vh);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fffafa,
+                    #fffdfd 48%,
+                    #fffafa
+                );
+
+            border-radius:
+                8px
+                18px
+                18px
+                8px;
+
+            border:
+                1px solid
+                rgba(184,112,143,.18);
+
+            box-shadow:
+
+                -12px 0 0
+                rgba(205,138,166,.17),
+
+                -19px 0 28px
+                rgba(106,57,81,.10),
+
+                0 22px 48px
+                rgba(106,57,81,.18),
+
+                inset 0 0 30px
+                rgba(190,130,155,.04);
+
+            padding:
+                40px
+                55px
+                78px;
+
+            transform:
+                perspective(1600px)
+                rotateY(-1.2deg)
+                rotateX(.4deg);
+
+            animation:
+                pageAppear
+                .7s
+                ease;
+        }
+
+
+        /* ==================================================
+           BOOK SPINE
+        ================================================== */
+
+        .book::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 15px;
+
+            width: 3px;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(186,112,143,.30),
+                    transparent
+                );
+
+            border-radius: 50%;
+        }
+
+
+        /* ==================================================
+           PAPER EDGE
+        ================================================== */
+
+        .book::after {
+            content: "";
+
+            position: absolute;
+
+            right: -4px;
+            top: 12px;
+
+            width: 4px;
+            height: calc(100% - 24px);
+
+            border-radius:
+                0
+                8px
+                8px
+                0;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    #f2dce5 0px,
+                    #f2dce5 3px,
+                    #ffffff 4px,
+                    #ffffff 7px
+                );
+
+            opacity: .85;
+        }
+
+
+        @keyframes pageAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    perspective(1600px)
+                    rotateY(-12deg)
+                    translateX(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    perspective(1600px)
+                    rotateY(-1.2deg)
+                    rotateX(.4deg);
+            }
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        .header {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .small-title {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: #bd7796;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px;
+        }
+
+        .header h1 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(29px,4vw,40px);
+
+            color: #8d4f6c;
+
+            margin-bottom: 7px;
+        }
+
+        .header p {
+            max-width: 590px;
+
+            margin: auto;
+
+            font-size: 12px;
+
+            color: #987184;
+
+            line-height: 1.6;
+        }
+
+
+        /* ==================================================
+           ORNAMENT HEADER
+        ================================================== */
+
+        .header-ornament {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            margin-top: 10px;
+        }
+
+        .header-ornament::before,
+        .header-ornament::after {
+            content: "";
+
+            width: 55px;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    #ddb1c2
+                );
+        }
+
+        .header-ornament::after {
+            background:
+                linear-gradient(
+                    to left,
+                    transparent,
+                    #ddb1c2
+                );
+        }
+
+        .header-ornament span {
+            color: #d17c9e;
+
+            font-size: 11px;
+        }
+
+
+        /* ==================================================
+           MENU CONTAINER
+        ================================================== */
+
+        .menu-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+
+            max-width: 760px;
+
+            margin: 0 auto;
+        }
+
+
+        /* ==================================================
+           MENU ITEM
+        ================================================== */
+
+        .menu-item {
+            position: relative;
+
+            min-height: 93px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding:
+                13px
+                15px;
+
+            text-decoration: none;
+
+            color: inherit;
+
+            border-radius: 17px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.90);
+
+            box-shadow:
+                0 5px 14px
+                rgba(120,68,91,.07);
+
+            overflow: hidden;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+
+        .menu-item:hover {
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 11px 24px
+                rgba(120,68,91,.14);
+        }
+
+
+        /* efek highlight */
+
+        .menu-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 110px;
+            height: 110px;
+
+            right: -40px;
+            top: -45px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.25);
+
+            pointer-events: none;
+        }
+
+
+        /* ==================================================
+           WARNA MENU
+        ================================================== */
+
+        .menu-item.pink {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff2f7,
+                    #f8d7e5
+                );
+        }
+
+        .menu-item.rose {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fce8f0,
+                    #f3cbdc
+                );
+        }
+
+        .menu-item.peach {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff2ec,
+                    #f8d9ce
+                );
+        }
+
+        .menu-item.lavender {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7f0fa,
+                    #e8daef
+                );
+        }
+
+        .menu-item.mint {
+            background:
+                linear-gradient(
+                    135deg,
+                    #edf8f4,
+                    #d9eee7
+                );
+        }
+
+
+        /* ==================================================
+           CHAPTER NUMBER
+        ================================================== */
+
+        .chapter {
+            position: absolute;
+
+            top: 9px;
+            right: 13px;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            color:
+                rgba(133,75,99,.48);
+        }
+
+
+        /* ==================================================
+           NUMBER
+        ================================================== */
+
+        .number {
+            position: relative;
+
+            flex-shrink: 0;
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 11px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.76);
+
+            color: #a75c7c;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            box-shadow:
+                inset
+                0 1px 3px
+                rgba(255,255,255,.9),
+
+                0 3px 8px
+                rgba(120,68,91,.07);
+        }
+
+
+        /* ==================================================
+           ICON
+        ================================================== */
+
+        .icon-box {
+            position: relative;
+
+            flex-shrink: 0;
+
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 12px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,.60);
+
+            border:
+                1px solid
+                rgba(255,255,255,.75);
+
+            box-shadow:
+                0 3px 8px
+                rgba(120,68,91,.05);
+        }
+
+        .icon {
+            font-size: 27px;
+
+            line-height: 1;
+
+            filter:
+                drop-shadow(
+                    0 2px 2px
+                    rgba(120,68,91,.08)
+                );
+        }
+
+
+        /* ==================================================
+           TEXT
+        ================================================== */
+
+        .menu-text {
+            flex: 1;
+
+            min-width: 0;
+        }
+
+        .menu-text h2 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
+
+            color: #75465b;
+
+            margin-bottom: 4px;
+        }
+
+        .menu-text span {
+            display: block;
+
+            font-size: 10px;
+
+            color: #a27789;
+
+            line-height: 1.45;
+
+            max-width: 250px;
+        }
+
+
+        /* ==================================================
+           ARROW
+        ================================================== */
+
+        .menu-arrow {
+            flex-shrink: 0;
+
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-left: 8px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.66);
+
+            color: #a85d7d;
+
+            font-size: 16px;
+
+            transition:
+                transform .25s ease,
+                background .25s ease;
+        }
+
+        .menu-item:hover .menu-arrow {
+            transform:
+                translateX(4px);
+
+            background:
+                rgba(255,255,255,.95);
+        }
+
+
+        /* ==================================================
+           PEMISAH PELENGKAP
+        ================================================== */
+
+        .support-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin:
+                15px auto
+                10px;
+
+            max-width: 760px;
+        }
+
+        .support-title::before,
+        .support-title::after {
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    #ead2dd
+                );
+        }
+
+        .support-title::after {
+            background:
+                linear-gradient(
+                    to left,
+                    transparent,
+                    #ead2dd
+                );
+        }
+
+        .support-title span {
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 10px;
+
+            color: #b2768d;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ==================================================
+           SUPPORT MENU
+        ================================================== */
+
+        .support-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 12px;
+
+            max-width: 760px;
+
+            margin: 0 auto;
+        }
+
+        .support-item {
+            min-height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding:
+                10px
+                14px;
+
+            text-decoration: none;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,.72);
+
+            border:
+                1px solid
+                rgba(228,205,216,.75);
+
+            box-shadow:
+                0 4px 10px
+                rgba(120,68,91,.05);
+
+            transition:
+                transform .2s ease,
+                background .2s ease;
+        }
+
+        .support-item:hover {
+            transform:
+                translateY(-3px);
+
+            background:
+                rgba(255,255,255,.94);
+        }
+
+        .support-icon {
+            width: 39px;
+            height: 39px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 11px;
+
+            border-radius: 12px;
+
+            background:#f5dce6;
+
+            font-size: 19px;
+        }
+
+        .support-text {
+            flex: 1;
+        }
+
+        .support-text h3 {
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            color: #75465b;
+
+            margin-bottom: 3px;
+        }
+
+        .support-text span {
+            display: block;
+
+            font-size: 9px;
+
+            color: #a27789;
+        }
+
+        .support-arrow {
+            color:#ad6682;
+
+            font-size:14px;
+        }
+
+
+        /* ==================================================
+           BACK BUTTON
+        ================================================== */
+
+        .back-button {
+            position: absolute;
+
+            left: 27px;
+            bottom: 19px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                7px
+                14px
+                7px
+                8px;
+
+            background:
+                rgba(255,255,255,.90);
+
+            color: #9e5775;
+
+            border:
+                1px solid
+                rgba(194,116,149,.20);
+
+            border-radius: 50px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 4px 10px
+                rgba(132,72,98,.09);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                background .25s ease;
+        }
+
+        .back-icon {
+            width: 26px;
+            height: 26px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:#f4c5d8;
+
+            color:#984f70;
+
+            font-size:15px;
+
+            transition:
+                transform .25s ease;
+        }
+
+        .back-button:hover {
+            background:#ffffff;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 7px 15px
+                rgba(132,72,98,.14);
+        }
+
+        .back-button:hover .back-icon {
+            transform:
+                translateX(-3px);
+        }
+
+
+        /* ==================================================
+           PAGE NUMBER
+        ================================================== */
+
+        .page-number {
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #bd829c;
+
+            font-weight: 600;
+        }
+
+
+        /* ==================================================
+           RESPONSIVE TABLET
+        ================================================== */
+
+        @media(max-width:750px){
+
+            body{
+                overflow-y:auto;
+            }
+
+            .page{
+                min-height:100vh;
+
+                height:auto;
+
+                padding:15px;
+            }
+
+            .book{
+                width:100%;
+
+                height:auto;
+
+                min-height:
+                    calc(100vh - 30px);
+
+                padding:
+                    32px
+                    25px
+                    75px;
+
+                transform:none;
+            }
+
+            .menu-container{
+                grid-template-columns:1fr;
+            }
+
+            .support-container{
+                grid-template-columns:1fr;
+            }
+
+            .menu-item{
+                min-height:82px;
+            }
+
+            .page-number{
+                bottom:23px;
+            }
+        }
+
+
+        /* ==================================================
+           RESPONSIVE HP
+        ================================================== */
+
+        @media(max-width:480px){
+
+            .page{
+                padding:8px;
+            }
+
+            .book{
+                min-height:
+                    calc(100vh - 16px);
+
+                padding:
+                    27px
+                    16px
+                    82px;
+
+                border-radius:
+                    8px
+                    13px
+                    13px
+                    8px;
+            }
+
+            .header{
+                margin-bottom:18px;
+            }
+
+            .small-title{
+                font-size:8px;
+
+                letter-spacing:1.8px;
+            }
+
+            .header h1{
+                font-size:27px;
+            }
+
+            .header p{
+                font-size:11px;
+            }
+
+            .header-ornament{
+                margin-top:8px;
+            }
+
+            .header-ornament::before,
+            .header-ornament::after{
+                width:38px;
+            }
+
+            .menu-container{
+                gap:9px;
+            }
+
+            .menu-item{
+                min-height:76px;
+
+                padding:
+                    10px
+                    10px;
+
+                border-radius:14px;
+            }
+
+            .chapter{
+                top:7px;
+                right:10px;
+
+                font-size:7px;
+            }
+
+            .number{
+                width:37px;
+                height:37px;
+
+                margin-right:7px;
+
+                font-size:13px;
+            }
+
+            .icon-box{
+                width:40px;
+                height:40px;
+
+                margin-right:8px;
+
+                border-radius:11px;
+            }
+
+            .icon{
+                font-size:21px;
+            }
+
+            .menu-text h2{
+                font-size:13px;
+
+                margin-bottom:2px;
+            }
+
+            .menu-text span{
+                font-size:8.5px;
+
+                line-height:1.35;
+
+                padding-right:3px;
+            }
+
+            .menu-arrow{
+                width:24px;
+                height:24px;
+
+                font-size:13px;
+
+                margin-left:4px;
+            }
+
+            .support-title{
+                margin-top:12px;
+            }
+
+            .support-title span{
+                font-size:8px;
+            }
+
+            .support-item{
+                min-height:62px;
+
+                padding:8px 10px;
+            }
+
+            .support-icon{
+                width:34px;
+                height:34px;
+
+                font-size:16px;
+
+                margin-right:9px;
+            }
+
+            .support-text h3{
+                font-size:12px;
+            }
+
+            .support-text span{
+                font-size:8px;
+            }
+
+            .support-arrow{
+                font-size:12px;
+            }
+
+            .back-button{
+                left:50%;
+
+                bottom:17px;
+
+                transform:
+                    translateX(-50%);
+
+                font-size:10px;
+
+                padding:
+                    6px
+                    12px
+                    6px
+                    7px;
+            }
+
+            .back-button:hover{
+                transform:
+                    translateX(-50%)
+                    translateY(-2px);
+            }
+
+            .back-icon{
+                width:24px;
+                height:24px;
+
+                font-size:13px;
+            }
+
+            .page-number{
+                display:none;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         DEKORASI LATAR
+    ================================================== -->
+
+    <div class="decor one"></div>
+    <div class="decor two"></div>
+    <div class="decor three"></div>
+    <div class="decor four"></div>
+
+
+    <!-- ==================================================
+         HALAMAN
+    ================================================== -->
+
+    <main class="page">
+
+        <section class="book">
+
+
+            <!-- ==================================================
+                 HEADER
+            ================================================== -->
+
+            <header class="header">
+
+                <div class="small-title">
+                    FLIPTACK • E-MODUL BERBASIS TPACK
+                </div>
+
+                <h1>
+                    Menu Pembelajaran
+                </h1>
+
+                
+                <div class="header-ornament">
+                    <span>✦</span>
+                </div>
+
+            </header>
+
+
+            <!-- ==================================================
+                 PERTEMUAN
+            ================================================== -->
+
+            <div class="menu-container">
+
+
+                <!-- ==================================================
+                     PERTEMUAN 1
+                ================================================== -->
+
+                <a
+                    href="kegiatanbelajar1.html"
+                    class="menu-item pink"
+                >
+
+                    <div class="chapter">
+                        PEMBELAJARAN 01
+                    </div>
+
+                    <div class="number">
+                        01
+                    </div>
+
+                    <div class="icon-box">
+                        <div class="icon">
+                            🫁
+                        </div>
+                    </div>
+
+                    <div class="menu-text">
+
+                        <h2>
+                            Pertemuan 1
+                        </h2>
+
+                        <span>
+                            Organ Pernapasan dan Fungsinya
+                        </span>
+
+                    </div>
+
+                    <div class="menu-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+                <!-- ==================================================
+                     PERTEMUAN 2
+                ================================================== -->
+
+                <a
+                    href="kegiatanbelajar2.html"
+                    class="menu-item rose"
+                >
+
+                    <div class="chapter">
+                        PEMBELAJARAN 02
+                    </div>
+
+                    <div class="number">
+                        02
+                    </div>
+
+                    <div class="icon-box">
+                        <div class="icon">
+                            🌬️
+                        </div>
+                    </div>
+
+                    <div class="menu-text">
+
+                        <h2>
+                            Pertemuan 2
+                        </h2>
+
+                        <span>
+                            Bagaimana Kita Bernapas?
+                        </span>
+
+                    </div>
+
+                    <div class="menu-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+                <!-- ==================================================
+                     PERTEMUAN 3
+                ================================================== -->
+
+                <a
+                    href="kegiatanbelajar3.html"
+                    class="menu-item peach"
+                >
+
+                    <div class="chapter">
+                        PEMBELAJARAN 03
+                    </div>
+
+                    <div class="number">
+                        03
+                    </div>
+
+                    <div class="icon-box">
+                        <div class="icon">
+                            ❤️‍🩹
+                        </div>
+                    </div>
+
+                    <div class="menu-text">
+
+                        <h2>
+                            Pertemuan 3
+                        </h2>
+
+                        <span>
+                            Gangguan Pernapasan dan Cara Pencegahannya
+                        </span>
+
+                    </div>
+
+                    <div class="menu-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+            <!-- ==================================================
+                 MENU PELENGKAP
+            ================================================== -->
+
+            <div class="support-title">
+
+                <span>
+                    Pelengkap Pembelajaran
+                </span>
+
+            </div>
+
+
+            <div class="support-container">
+
+
+                <!-- EVALUASI -->
+
+                <a
+                    href="evaluasi.html"
+                    class="support-item"
+                >
+
+                    <div class="support-icon">
+                        ✏️
+                    </div>
+
+                    <div class="support-text">
+
+                        <h3>
+                            Evaluasi Akhir
+                        </h3>
+
+                        <span>
+                            Uji pemahamanmu setelah belajar
+                        </span>
+
+                    </div>
+
+                    <div class="support-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+                <!-- GLOSARIUM -->
+
+                <a
+                    href="glosarium.html"
+                    class="support-item"
+                >
+
+                    <div class="support-icon">
+                        📖
+                    </div>
+
+                    <div class="support-text">
+
+                        <h3>
+                            Glosarium
+                        </h3>
+
+                        <span>
+                            Temukan istilah penting dalam pembelajaran
+                        </span>
+
+                    </div>
+
+                    <div class="support-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+            <!-- ==================================================
+                 KEMBALI
+            ================================================== -->
+
+            <a
+                href="panduan.html"
+                class="back-button"
+            >
+
+                <span class="back-icon">
+                    ←
+                </span>
+
+                <span>
+                    Kembali ke Panduan
+                </span>
+
+            </a>
+
+
+            <!-- ==================================================
+                 NOMOR HALAMAN
+            ================================================== -->
+
+            <div class="page-number">
+                03&nbsp;&nbsp;/&nbsp;&nbsp;MENU
+            </div>
+
+
+        </section>
+
+    </main>
+
+</body>
+</html>

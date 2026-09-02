@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tes Formatif 2 | FLIPTACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="card header-belajar">
+    <h2>Tes Formatif</h2>
+    <p class="subtitle">Bagaimana Kita Bernapas?</p>
+  </div>
+
+ <!-- INSTRUKSI -->
+  <div class="card info-box">
+    <h3>📌 Cara Mengerjakan</h3>
+<br>
+      <div class="panduan-item">
+        <div class="panduan-number">1</div>
+        <div class="panduan-text">
+          Isi nama, kelompok, dan kelasmu pada Google Form dibawah ini.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">2</div>
+        <div class="panduan-text">
+          Jawab semua pertanyaan.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">3</div>
+        <div class="panduan-text">
+          Jika sudah selesai, tekan tombol <strong>Kirim/Submit</strong>.
+        </div>
+      </div>
+
+  </div>
+
+<!-- GFORM -->
+  <div class="card soft">
+    <div class="section-title">
+         </div>
+
+       <div class="heyzine-container portrait">
+      <iframe 
+        src="https://forms.gle/dy5iwaC9kjk19NaJA"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+
+<!-- FEEDBACK -->
+  <div class="card selesai-box">
+    <p>
+      Setelah mengerjakan tes formatif, klik tombol di bawah untuk lanjut.
+    </p>
+  </div>
+
+   <!-- NAV -->
+  <div class="nav-buttons" style="display:flex; justify-content:flex-end; margin-top:16px;">
+    <a href="kegiatanbelajar2.html" class="button big" onclick="showPopupSelesai(event)">
+      ✅ Saya sudah mengerjakan ➜
+    </a>
+  </div>
+
+</div>
+
+<!-- POPUP LANJUT -->
+<div id="popupSelesai" class="popup">
+  <div class="popup-content">
+    <h3>🏠 Siap Belajar di Rumah?</h3>
+    <p>
+      Kamu sudah menyelesaikan tes formatif di sekolah.
+      <br><br>
+      Selanjutnya, kerjakan tugas di rumah dengan teliti ya 😊
+    </p>
+    <button onclick="lanjutTugas()">Lanjut ➜</button>
+  </div>
+</div>
+
+
+<!-- SCRIPT -->
+<script>
+function showPopupSelesai(event) {
+  event.preventDefault();
+  document.getElementById("popupSelesai").style.display = "flex";
+}
+
+function lanjutTugas() {
+  localStorage.setItem("post2-open", "open");
+  window.location.href = "kegiatanbelajar2.html";
+}
+
+function showReminder() {
+  document.getElementById("popupReminder").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popupReminder").style.display = "none";
+}
+</script>
+
+</body>
+</html>

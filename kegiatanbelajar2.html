@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kegiatan Belajar 2 | FLIPTACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="card header-belajar">
+    <h1 class="title">Kegiatan Belajar 2</h1>
+    <p class="subtitle">Bagaimana Kita Bernafas ?</p>
+  </div>
+
+  <!-- PRA CLASS -->
+  <div class="card section pink">
+    <h2 class="section-title">🏠 Pra-Class (Di Rumah)</h2>
+    <ul class="list">
+      <li>
+        <a href="materipembelajaran2.html" onclick="unlock('pra2-kuis')">
+          📘 Materi Pembelajaran
+        </a>
+      </li>
+      <li id="pra2-kuis" class="locked">📝 Kuis 🔒</li>
+    </ul>
+  </div>
+
+  <!-- IN CLASS -->
+  <div class="card section rose locked-section" id="in2-class">
+    <h2 class="section-title">🏫 In-Class (Di Sekolah)</h2>
+    <ul class="list">
+      <li id="in2-kegiatan" class="locked">📄 Kegiatan Pembelajaran 🔒</li>
+      <li id="in2-tesformatif" class="locked">✅ Tes Formatif 🔒</li>
+    </ul>
+  </div>
+
+  <!-- POST CLASS -->
+  <div class="card section peach locked-section" id="post2-class">
+    <h2 class="section-title">🏠 Post-Class (Di Rumah)</h2>
+    <ul class="list">
+      <li id="post2-tugas" class="locked">🧩 Tugas 🔒</li>
+      <li id="post2-refleksi" class="locked">💭 Refleksi 🔒</li>
+    </ul>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-buttons">
+    <a href="menu.html" class="button back">⬅ Menu</a>
+  </div>
+
+</div>
+
+<script>
+function unlock(key) {
+  localStorage.setItem(key, "open");
+}
+
+window.onload = function () {
+
+  /* PRA → KUIS */
+  if (localStorage.getItem("pra2-kuis") === "open") {
+    document.getElementById("pra2-kuis").innerHTML =
+      '<a href="kuis2.html" onclick="unlock(\'in2-open\')">📝 Kuis</a>';
+    document.getElementById("pra2-kuis").classList.remove("locked");
+  }
+
+  /* BUKA IN CLASS */
+  if (localStorage.getItem("in2-open") === "open") {
+    document.getElementById("in2-class").classList.remove("locked-section");
+
+    document.getElementById("in2-kegiatan").innerHTML =
+      '<a href="kegiatanpembelajaran2.html" onclick="unlock(\'in2-tesformatif\')">📄 Kegiatan Pembelajaran</a>';
+    document.getElementById("in2-kegiatan").classList.remove("locked");
+  }
+
+  if (localStorage.getItem("in2-tesformatif") === "open") {
+    document.getElementById("in2-tesformatif").innerHTML =
+      '<a href="tesformatif2.html" onclick="unlock(\'post2-open\')">✅ Tes Formatif</a>';
+    document.getElementById("in2-tesformatif").classList.remove("locked");
+  }
+
+  /* BUKA POST CLASS */
+  if (localStorage.getItem("post2-open") === "open") {
+    document.getElementById("post2-class").classList.remove("locked-section");
+
+    document.getElementById("post2-tugas").innerHTML =
+      '<a href="tugas2.html" onclick="unlock(\'post2-refleksi\')">🧩 Tugas</a>';
+    document.getElementById("post2-tugas").classList.remove("locked");
+  }
+
+  if (localStorage.getItem("post2-refleksi") === "open") {
+    document.getElementById("post2-refleksi").innerHTML =
+      '<a href="refleksi2.html">💭 Refleksi</a>';
+    document.getElementById("post2-refleksi").classList.remove("locked");
+  }
+};
+</script>
+
+</body>
+</html>

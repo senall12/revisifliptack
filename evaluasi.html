@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluasi Akhir | FLIPTACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="card header-belajar refleksi-header">
+    <div class="emoji-besar">📝</div>
+    <h2>Evaluasi Akhir</h2>
+    <p class="subtitle">
+      Kerjakan evaluasi berikut untuk mengetahui pemahamanmu tentang seluruh materi sistem pernapasan manusia.
+    </p>
+  </div>
+
+  <!-- PETUNJUK KERJAKAN GFORM -->
+       <div class="card info-box panduan-tugas-box" style="margin-top:20px;">
+      <h3>📌 Cara Mengerjakan</h3>
+<br>
+      <div class="panduan-item">
+        <div class="panduan-number">1</div>
+        <div class="panduan-text">
+          Isi nama, kelompok, dan kelasmu pada Google Form dibawah ini.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">2</div>
+        <div class="panduan-text">
+          Jawab semua pertanyaan.
+        </div>
+      </div>
+
+      <div class="panduan-item">
+        <div class="panduan-number">3</div>
+        <div class="panduan-text">
+          Jika sudah selesai, tekan tombol <strong>Kirim/Submit</strong>.
+        </div>
+      </div>
+</div>
+
+  <!-- KEGIATAN GFORM -->
+  <div class="card soft">
+    <div class="section-title">
+         </div>
+
+       <div class="heyzine-container portrait">
+      <iframe   src="https://docs.google.com/forms/d/e/1FAIpQLSfb92_9o89574HCue3ZLBMezy_-uchn18UZ4pB3xjic7VEEHw/viewform?usp=publish-editor"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+
+  <!-- PENUTUP -->
+  <div class="card selesai-box refleksi-end">
+    <div class="emoji-besar">🌟</div>
+    <h3>Semangat!</h3>
+    <p>
+      Setelah selesai mengerjakan evaluasi, kamu telah menyelesaikan seluruh rangkaian pembelajaran pada FLIPTACK.
+    </p>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-buttons" style="display:flex; justify-content:space-between; gap:12px;">
+    <a href="menu.html" class="button back">
+      ⬅ Kembali ke Menu
+    </a>
+
+    <a href="penutup.html" class="button big">
+      Selesai ➜
+    </a>
+  </div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popupReminder" class="popup">
+  <div class="popup-content">
+    <h3>📌 Perhatian</h3>
+    <p>
+      Google Form akan terbuka di tab baru.
+      <br><br>
+      Jangan lupa kembali ke halaman ini setelah selesai ya 😊
+    </p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<script>
+function showReminder() {
+  document.getElementById("popupReminder").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popupReminder").style.display = "none";
+}
+</script>
+
+</body>
+</html>
