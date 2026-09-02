@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -77,7 +75,7 @@ body{
 
     width:min(1100px,96vw);
 
-    height:min(820px,92vh);
+    height:min(850px,94vh);
 
     background:#fffdfb;
 
@@ -141,7 +139,7 @@ body{
 
     overflow-y:auto;
 
-    padding:35px 45px 105px;
+    padding:35px 45px 115px;
 
     scroll-behavior:smooth;
 
@@ -377,10 +375,12 @@ h1{
 
 
 /* =====================================================
-   FLIPBOOK CONTAINER
+   FLIPBOOK CARD
 ===================================================== */
 
 .flipbook-card{
+
+    width:100%;
 
     background:#fff;
 
@@ -422,6 +422,8 @@ h1{
 
     gap:9px;
 
+    min-width:0;
+
 }
 
 
@@ -445,7 +447,13 @@ h1{
 }
 
 
+/* =====================================================
+   LABEL
+===================================================== */
+
 .flipbook-label{
+
+    flex-shrink:0;
 
     font-size:10px;
 
@@ -463,14 +471,14 @@ h1{
 
 
 /* =====================================================
-   HEYZINE
+   HEYZINE WRAPPER
 ===================================================== */
 
 .flipbook-wrapper{
 
     width:100%;
 
-    height:560px;
+    height:620px;
 
     position:relative;
 
@@ -487,11 +495,27 @@ h1{
 }
 
 
+/* =====================================================
+   HEYZINE IFRAME
+===================================================== */
+
 .flipbook-wrapper iframe{
 
-    width:100%;
+    position:absolute;
 
-    height:100%;
+    inset:0;
+
+    width:100% !important;
+
+    height:100% !important;
+
+    min-width:0 !important;
+
+    min-height:0 !important;
+
+    max-width:none;
+
+    max-height:none;
 
     border:none;
 
@@ -533,7 +557,7 @@ h1{
 
 
 /* =====================================================
-   PETUNJUK
+   PETUNJUK MEMBACA
 ===================================================== */
 
 .reading-guide{
@@ -543,7 +567,6 @@ h1{
     display:grid;
 
     grid-template-columns:
-
         repeat(3,1fr);
 
     gap:12px;
@@ -740,7 +763,51 @@ h1{
 
 
 /* =====================================================
-   RESPONSIVE TABLET
+   TABLET
+===================================================== */
+
+@media(max-width:900px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+
+    .book{
+
+        width:100%;
+
+        height:calc(100vh - 30px);
+
+    }
+
+
+    .book-content{
+
+        padding:
+
+            30px
+
+            28px
+
+            110px;
+
+    }
+
+
+    .flipbook-wrapper{
+
+        height:570px;
+
+    }
+
+}
+
+
+/* =====================================================
+   HP / MOBILE
 ===================================================== */
 
 @media(max-width:700px){
@@ -760,6 +827,8 @@ h1{
 
         height:calc(100vh - 20px);
 
+        min-height:0;
+
         border-radius:14px;
 
     }
@@ -773,7 +842,7 @@ h1{
 
             18px
 
-            100px;
+            105px;
 
     }
 
@@ -807,12 +876,30 @@ h1{
 
         font-size:13px;
 
+        line-height:1.65;
+
+    }
+
+
+    .material-intro{
+
+        padding:15px;
+
+    }
+
+
+    .material-intro p{
+
+        font-size:12px;
+
     }
 
 
     .flipbook-card{
 
         padding:9px;
+
+        border-radius:15px;
 
     }
 
@@ -821,11 +908,25 @@ h1{
 
         padding:
 
-            6px
+            7px
 
             5px
 
-            10px;
+            11px;
+
+    }
+
+
+    .flipbook-title{
+
+        gap:7px;
+
+    }
+
+
+    .flipbook-title-icon{
+
+        font-size:17px;
 
     }
 
@@ -846,9 +947,45 @@ h1{
     }
 
 
+    /* ================================================
+       HEYZINE MOBILE
+    ================================================ */
+
     .flipbook-wrapper{
 
-        height:480px;
+        width:100%;
+
+        height:520px;
+
+        overflow:hidden;
+
+        border-radius:11px;
+
+    }
+
+
+    .flipbook-wrapper iframe{
+
+        width:100% !important;
+
+        height:100% !important;
+
+    }
+
+
+    .flipbook-info{
+
+        font-size:10.5px;
+
+        line-height:1.5;
+
+        padding:
+
+            12px
+
+            4px
+
+            3px;
 
     }
 
@@ -882,13 +1019,15 @@ h1{
 
         font-size:9px;
 
+        text-align:center;
+
     }
 
 }
 
 
 /* =====================================================
-   RESPONSIVE HP KECIL
+   HP KECIL
 ===================================================== */
 
 @media(max-width:420px){
@@ -898,6 +1037,8 @@ h1{
         padding-left:14px;
 
         padding-right:14px;
+
+        padding-bottom:105px;
 
     }
 
@@ -909,16 +1050,83 @@ h1{
     }
 
 
-    .material-intro{
+    .badges{
 
-        padding:14px;
+        gap:6px;
 
     }
 
 
-    .flipbook-wrapper{
+    .badge{
 
-        height:430px;
+        font-size:8.5px;
+
+        padding:6px 10px;
+
+    }
+
+
+    h1{
+
+        font-size:24px;
+
+    }
+
+
+    .subtitle{
+
+        font-size:12px;
+
+    }
+
+
+    .material-intro{
+
+        padding:14px;
+
+        gap:11px;
+
+    }
+
+
+    .material-icon{
+
+        width:38px;
+
+        height:38px;
+
+        min-width:38px;
+
+        font-size:19px;
+
+    }
+
+
+    .material-intro p{
+
+        font-size:11.5px;
+
+        line-height:1.6;
+
+    }
+
+
+    .flipbook-card{
+
+        padding:7px;
+
+    }
+
+
+    .flipbook-header{
+
+        padding:
+
+            6px
+
+            4px
+
+            9px;
 
     }
 
@@ -937,6 +1145,42 @@ h1{
     }
 
 
+    /* HEYZINE HP KECIL */
+
+    .flipbook-wrapper{
+
+        height:450px;
+
+        border-radius:10px;
+
+    }
+
+
+    .flipbook-wrapper iframe{
+
+        width:100% !important;
+
+        height:100% !important;
+
+    }
+
+
+    .flipbook-info{
+
+        font-size:10px;
+
+    }
+
+
+    .material-note{
+
+        font-size:11px;
+
+        padding:14px;
+
+    }
+
+
     .nav-button{
 
         padding:
@@ -945,7 +1189,89 @@ h1{
 
             9px;
 
+        font-size:9px;
+
     }
+
+
+    .page-number{
+
+        font-size:8px;
+
+    }
+
+}
+
+
+/* =====================================================
+   HP SANGAT KECIL
+===================================================== */
+
+@media(max-width:360px){
+
+    .book-content{
+
+        padding-left:11px;
+
+        padding-right:11px;
+
+    }
+
+
+    .flipbook-wrapper{
+
+        height:420px;
+
+    }
+
+
+    .flipbook-title span{
+
+        font-size:13px;
+
+    }
+
+
+    .flipbook-info{
+
+        font-size:9.5px;
+
+    }
+
+
+    .book-navigation{
+
+        padding-left:8px;
+
+        padding-right:8px;
+
+    }
+
+
+    .nav-button{
+
+        padding:
+
+            7px
+
+            8px;
+
+        font-size:8.5px;
+
+    }
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+.nav-button:focus-visible{
+
+    outline:3px solid #dca5ba;
+
+    outline-offset:3px;
 
 }
 
@@ -970,11 +1296,16 @@ h1{
 <div class="book-header">
 
     <div class="brand">
+
         FLIPTACK • E-MODUL BERBASIS TPACK
+
     </div>
 
+
     <div class="bookmark">
+
         SISTEM PERNAPASAN MANUSIA
+
     </div>
 
 </div>
@@ -987,11 +1318,16 @@ h1{
 <div class="badges">
 
     <div class="badge badge-pink">
+
         PERTEMUAN 1
+
     </div>
 
+
     <div class="badge badge-light">
+
         FASE 1 • CONTEXTUAL SCIENTIFIC EXPLORATION
+
     </div>
 
 </div>
@@ -1002,7 +1338,9 @@ h1{
 ===================================================== -->
 
 <h1>
+
     Materi Pembelajaran
+
 </h1>
 
 
@@ -1024,14 +1362,18 @@ h1{
 
 
     <div class="material-icon">
+
         📖
+
     </div>
 
 
     <p>
 
         <strong>
+
             Yuk, mulai membaca!
+
         </strong>
 
         Gunakan tombol atau arah halaman pada buku
@@ -1058,31 +1400,53 @@ h1{
         <div class="flipbook-title">
 
             <div class="flipbook-title-icon">
+
                 📚
+
             </div>
 
+
             <span>
+
                 Materi Sistem Pernapasan Manusia
+
             </span>
 
         </div>
 
 
         <div class="flipbook-label">
-            Materi
-        </div>
 
+            Materi
+
+        </div>
 
     </div>
 
 
+    <!-- =================================================
+         HEYZINE
+    ================================================== -->
+
     <div class="flipbook-wrapper">
 
 
+        <iframe
 
-         <iframe style="width:550px;height:400px" src="https://heyzine.com/flip-book/41e39dd52f.html"  seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe>
+            src="https://heyzine.com/flip-book/41e39dd52f.html"
 
-           
+            seamless="seamless"
+
+            scrolling="no"
+
+            frameborder="0"
+
+            allowtransparency="true"
+
+            allowfullscreen="true">
+
+        </iframe>
+
 
     </div>
 
@@ -1090,12 +1454,17 @@ h1{
     <div class="flipbook-info">
 
         <span class="flipbook-info-icon">
+
             👆
+
         </span>
 
+
         <span>
-            Geser atau gunakan tombol pada buku untuk
-            berpindah halaman.
+
+            Geser atau gunakan tombol pada buku
+            untuk berpindah halaman.
+
         </span>
 
     </div>
@@ -1104,20 +1473,25 @@ h1{
 </div>
 
 
- 
-
 <!-- =====================================================
      CATATAN
 ===================================================== -->
 
 <div class="material-note">
 
-    <strong>Tips untukmu:</strong>
+
+    <strong>
+
+        Tips untukmu:
+
+    </strong>
+
 
     Jika menemukan istilah atau bagian materi
     yang belum kamu pahami, tidak perlu khawatir.
     Catat terlebih dahulu pertanyaanmu.
     Kita akan membahasnya pada kegiatan berikutnya.
+
 
 </div>
 
@@ -1145,7 +1519,7 @@ h1{
 
     <div class="page-number">
 
-         Materi Pembelajaran
+        Materi Pembelajaran
 
     </div>
 
